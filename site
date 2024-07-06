@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Cycling Website</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #image-container {
+            max-width: 800px;
+            max-height: 600px;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div id="image-container">
+        <img id="cyclingImage" src="https://i.imgur.com/example1.jpg" alt="Cycling Image">
+    </div>
+
+    <script>
+        const images = [
+            "https://i.imgur.com/example1.jpg",
+            "https://i.imgur.com/example2.jpg",
+            "https://i.imgur.com/example3.jpg",
+            "https://i.imgur.com/example4.jpg",
+            "https://i.imgur.com/example5.jpg"
+        ];
+        let currentIndex = 0;
+
+        function cycleImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById('cyclingImage').src = images[currentIndex];
+        }
+
+        // Change image every 3 minutes (180000 milliseconds)
+        setInterval(cycleImage, 180000);
+    </script>
+</body>
+</html>
